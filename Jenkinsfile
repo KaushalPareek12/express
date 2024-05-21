@@ -25,7 +25,7 @@ pipeline {
                 echo "Pushing the image to Docker Hub"
                 withCredentials([usernamePassword(credentialsId: "dockerHub", passwordVariable: "dockerHubPass", usernameVariable: "dockerHubUser")]) {
                     sh "echo ${dockerHubPass} | docker login -u ${dockerHubUser} --password-stdin"
-                    sh "docker tag kaushalpareek/my-note-app:latest"
+                    sh "docker tag my-note-app kaushalpareek/my-note-app:latest"
                     sh "docker push kaushalpareek/my-note-app:latest"
                 }
             }
